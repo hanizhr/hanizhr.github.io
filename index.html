@@ -3,50 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Haniyeh Zahraee | Backend & Data Science Portfolio</title>
     
-    <meta name="description" content="Portfolio of Haniyeh Zahraee - Backend Developer, Data Science Specialist, and Machine Learning Researcher.">
-    <meta name="keywords" content="Haniyeh Zahraee, Backend Developer, Python, PyTorch, Data Science, Machine Learning, Node.js, Linux">
-    <meta name="author" content="Haniyeh Zahraee">
-    
-    <meta property="og:title" content="Haniyeh Zahraee | Backend & Data Science Portfolio">
-    <meta property="og:description" content="Explore projects in Backend Engineering, PyTorch, Machine Learning, and Data Science.">
-    <meta property="og:type" content="website">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* =======================================================
-            THEME: VS Code Dark & Terminal Green Paper Light
-            ======================================================= */
         :root {
-            --primary: #ce9178;      /* string-orange */
-            --secondary: #c586c0;    /* keyword purple */
-            --accent: #4ec9b0;       /* type teal / green */
-            --func: #dcdcaa;         /* function yellow */
-            --blue: #569cd6;         /* keyword blue */
+            --primary: #ce9178;
+            --secondary: #c586c0;
+            --accent: #4ec9b0;
+            --func: #dcdcaa;
+            --blue: #569cd6;
 
-            /* Dark Theme (Default) */
             --bg: #1e1e1e;
             --bg-light: #252526;
             --text: #d4d4d4;
             --text-muted: #9a9a8c;
-            --card-bg: rgba(37, 37, 38, 0.85);
+            --card-bg: rgba(37, 37, 38, 0.88);
             --border: rgba(212, 212, 212, 0.12);
             --nav-bg: rgba(30, 30, 30, 0.97);
             --toggle-bg: #2d2d2d;
             --toggle-icon: #d4d4d4;
             --shadow: rgba(0, 0, 0, 0.45);
             --line-num: #5a5a52;
-            --paper-grain-opacity: 0.05;
             --titlebar: #323233;
             --statusbar: #007acc;
         }
 
         [data-theme="light"] {
-            /* Light Theme: Terminal Green Paper Style */
             --primary: #0b6623;
             --secondary: #2e7d32;
             --accent: #1b5e20;
@@ -57,14 +42,13 @@
             --bg-light: #c8e6c9;
             --text: #1b381b;
             --text-muted: #4e6b4e;
-            --card-bg: rgba(241, 248, 241, 0.92);
-            --border: rgba(46, 125, 50, 0.22);
+            --card-bg: rgba(241, 248, 241, 0.95);
+            --border: rgba(46, 125, 50, 0.25);
             --nav-bg: rgba(232, 245, 233, 0.97);
             --toggle-bg: #c8e6c9;
             --toggle-icon: #1b381b;
             --shadow: rgba(27, 56, 27, 0.12);
             --line-num: #81c784;
-            --paper-grain-opacity: 0.08;
             --titlebar: #c8e6c9;
             --statusbar: #2e7d32;
         }
@@ -79,26 +63,13 @@
             line-height: 1.7;
             overflow-x: hidden;
             transition: background-color 0.4s ease, color 0.4s ease;
-            position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9990;
-            opacity: var(--paper-grain-opacity);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            mix-blend-mode: multiply;
-        }
-
-        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border: 3px solid var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-        /* ================= TITLE BAR ================= */
         .titlebar {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -119,7 +90,6 @@
         .tb-dot.green { background: #27c93f; }
         .tb-path { margin-left: 12px; opacity: 0.8; }
 
-        /* ================= NAVIGATION ================= */
         nav {
             position: fixed;
             top: 30px;
@@ -141,34 +111,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 6px;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            box-shadow: 0 4px 12px var(--shadow);
-            cursor: pointer;
             margin: 6px 0;
         }
-        .logo svg { display: block; }
-
         .nav-right { display: flex; align-items: center; gap: 1.5rem; }
         .nav-links { display: flex; list-style: none; gap: 0; height: 44px; }
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0 1.1rem;
+            padding: 0 1rem;
             height: 44px;
             border-right: 1px solid var(--border);
             border-top: 2px solid transparent;
             transition: 0.3s;
         }
-        .nav-links a i { font-size: 0.85rem; opacity: 0.75; }
         .nav-links a:hover {
             color: var(--text);
             background: var(--bg-light);
@@ -179,8 +143,8 @@
             background: var(--toggle-bg);
             border: 1px solid var(--border);
             color: var(--toggle-icon);
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -189,104 +153,89 @@
             transition: 0.3s;
         }
         .theme-toggle:hover { border-color: var(--accent); }
-        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.3rem; cursor: pointer; }
 
-        /* ================= HERO SECTION ================= */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 7.5rem 2rem 2rem;
-            background:
-                linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 32px,
-                var(--bg);
         }
         .hero-content {
-            text-align: left;
+            width: 100%;
             max-width: 760px;
-            margin: 0 auto;
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 2.2rem 2.5rem;
             box-shadow: 0 20px 60px var(--shadow);
-            backdrop-filter: blur(6px);
         }
         .code-line { display: flex; gap: 0.9rem; align-items: baseline; }
-        .ln { color: var(--line-num); font-size: 0.85rem; user-select: none; min-width: 1.2rem; text-align: right; }
+        .ln { color: var(--line-num); font-size: 0.85rem; user-select: none; }
         .kw { color: var(--secondary); }
         .fn { color: var(--func); }
         .ty { color: var(--blue); }
         .str { color: var(--primary); }
 
-        .hero-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 0.4rem; }
-        .hero-title { font-size: 2.6rem; font-weight: 700; margin: 0.6rem 0 1rem 2.1rem; line-height: 1.3; }
+        .hero-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.4rem; }
+        .hero-title { font-size: 2.5rem; font-weight: 700; margin: 0.6rem 0 1rem 1.8rem; line-height: 1.3; }
         .hero-title span { color: var(--accent); }
-        .hero-title .cursor {
-            display: inline-block; width: 3px; height: 0.9em; background: var(--accent);
-            margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle;
-        }
-        @keyframes blink { 50% { opacity: 0; } }
-        .hero-description { font-size: 1.05rem; color: var(--text-muted); margin: 0 0 1.6rem 2.1rem; max-width: 600px; }
-        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-left: 2.1rem; }
+        .hero-description { font-size: 1rem; color: var(--text-muted); margin: 0 0 1.6rem 1.8rem; max-width: 600px; }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-left: 1.8rem; }
         
         .btn {
-            padding: 0.8rem 1.7rem; border-radius: 6px; font-weight: 600; text-decoration: none;
-            display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; font-family: inherit;
+            padding: 0.7rem 1.5rem; border-radius: 6px; font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; font-family: inherit; font-size: 0.9rem;
         }
         .btn-primary { background: var(--accent); color: #1e1e1e; font-weight: 700; }
         [data-theme="light"] .btn-primary { color: #fff; }
         .btn-secondary { background: transparent; color: var(--text); border: 2px solid var(--border); }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* ================= SECTIONS ================= */
-        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-header { margin-bottom: 3rem; }
-        .section-title { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.4rem; display: inline-flex; gap: 0.6rem; }
+        section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { margin-bottom: 2.5rem; }
+        .section-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; display: inline-flex; gap: 0.5rem; }
         .section-title::before { content: '#'; color: var(--secondary); }
-        .section-subtitle { color: var(--text-muted); font-size: 1rem; font-style: italic; }
+        .section-subtitle { color: var(--text-muted); font-size: 0.95rem; font-style: italic; }
 
-        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
-        .about-image { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: 2rem; color: var(--accent); }
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; align-items: start; }
+        .about-image { background: var(--card-bg); border: 2px solid var(--border); border-radius: 10px; padding: 1.8rem; color: var(--accent); }
         .about-text { background: var(--card-bg); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 1.8rem 2rem; box-shadow: 0 6px 20px var(--shadow); }
-        .about-text h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--blue); }
-        .about-text p { color: var(--text-muted); margin-bottom: 1rem; }
+        .about-text h3 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--blue); }
+        .about-text p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.95rem; }
         
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-        .info-item { display: flex; align-items: center; gap: 0.75rem; }
-        .info-item i { color: var(--accent); width: 20px; }
+        .info-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; }
+        .info-item i { color: var(--accent); width: 18px; }
         .info-item span, .info-item a { color: var(--text-muted); text-decoration: none; }
 
-        /* SKILLS */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .skill-category { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.6rem 1.8rem; }
-        .skill-category h3 { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; color: var(--blue); font-size: 1.05rem; }
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .skill-category { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+        .skill-category h3 { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.2rem; color: var(--blue); font-size: 1rem; }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag { background: rgba(78, 201, 176, 0.12); color: var(--accent); padding: 0.4rem 0.9rem; border-radius: 4px; font-size: 0.85rem; border: 1px solid rgba(78, 201, 176, 0.3); }
+        .skill-tag { background: rgba(78, 201, 176, 0.12); color: var(--accent); padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.8rem; border: 1px solid rgba(78, 201, 176, 0.3); }
 
-        /* PROJECTS */
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 1.8rem; }
         .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-        .project-image { width: 100%; height: 160px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: 0.88rem; border-bottom: 1px solid var(--border); }
-        .project-content { padding: 1.5rem; }
-        .project-content h3 { margin-bottom: 0.5rem; font-size: 1.15rem; color: var(--func); }
-        .project-content p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem; }
-        .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-        .project-tag { font-size: 0.78rem; background: rgba(197, 134, 192, 0.12); color: var(--secondary); padding: 0.25rem 0.7rem; border-radius: 4px; }
-        .project-links a { color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; }
+        .project-image { width: 100%; height: 140px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; color: var(--secondary); font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+        .project-content { padding: 1.4rem; }
+        .project-content h3 { margin-bottom: 0.4rem; font-size: 1.1rem; color: var(--func); }
+        .project-content p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+        .project-tag { font-size: 0.75rem; background: rgba(197, 134, 192, 0.12); color: var(--secondary); padding: 0.2rem 0.6rem; border-radius: 4px; }
+        .project-links a { color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; }
         .project-links a:hover { color: var(--accent); }
 
-        /* TERMINAL CONTACT */
         .contact-content { max-width: 800px; margin: 0 auto; }
         .terminal-box { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; }
-        .terminal-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
-        .terminal-prompt { color: var(--accent); margin-bottom: 0.5rem; }
+        .terminal-box p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 0.95rem; }
+        .terminal-prompt { color: var(--accent); margin-bottom: 0.5rem; font-size: 0.9rem; }
 
-        footer { text-align: center; padding: 0.8rem; border-top: 1px solid var(--border); color: #fff; background: var(--statusbar); font-size: 0.85rem; }
+        footer { text-align: center; padding: 0.8rem; border-top: 1px solid var(--border); color: #fff; background: var(--statusbar); font-size: 0.8rem; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg); flex-direction: column; height: auto; padding: 0.5rem 1rem; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg); flex-direction: column; height: auto; padding: 0.5rem 1rem; border-bottom: 1px solid var(--border); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .about-content { grid-template-columns: 1fr; }
@@ -305,7 +254,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+                <svg width="32" height="32" viewBox="0 0 42 42" fill="none">
                     <rect width="42" height="42" rx="10" fill="url(#logo-grad)"/>
                     <path d="M13 12V30M29 12V30M13 21H29" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
                     <defs>
@@ -337,15 +286,15 @@
             <div class="code-line"><span class="ln">1</span><span class="kw">class</span> <span class="ty">HaniyehZahraee</span>:</div>
             <div class="code-line"><span class="ln">2</span>    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="ty">self</span>):</div>
             <div class="code-line"><span class="ln">3</span>        <span class="ty">self</span>.focus = <span class="str">"Backend Engineering & Data Science"</span></div>
-            <div class="code-line"><span class="ln">4</span>        <span class="ty">self</span>.frameworks = [<span class="str">"Python"</span>, <span class="str">"PyTorch"</span>, <span class="str">"Django"</span>, <span class="str">"Node.js"</span>]</div>
+            <div class="code-line"><span class="ln">4</span>        <span class="ty">self</span>.languages = [<span class="str">"Python"</span>, <span class="str">"JavaScript"</span>]</div>
             <div class="code-line"><span class="ln">5</span>        <span class="ty">self</span>.location = <span class="str">"Mashhad & Tehran, Iran"</span></div>
             <br>
             <div class="hero-subtitle">// Backend Systems & Machine Learning Workspace</div>
-            <h1 class="hero-title">Hi, I'm <span>Haniyeh</span><span class="cursor"></span></h1>
-            <p class="hero-description">Software Developer & Data Science Specialist focused on building scalable backend architectures, training deep learning models with PyTorch, and extracting structured data.</p>
+            <h1 class="hero-title">Hi, I'm <span>Haniyeh</span></h1>
+            <p class="hero-description">Software Developer & Data Science Specialist focused on building scalable backend architectures, training deep learning models using PyTorch, and extracting structured data.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary"><i class="fas fa-code-branch"></i> View Projects</a>
-                <a href="#contact" class="btn btn-secondary"><i class="fas fa-terminal">></i> Contact Me</a>
+                <a href="#contact" class="btn btn-secondary"><i class="fas fa-terminal"></i> Contact Me</a>
             </div>
         </div>
     </section>
@@ -366,13 +315,13 @@
             </div>
             <div class="about-text">
                 <h3>// Professional Overview</h3>
-                <p>I am a software developer specializing in backend engineering, data science, and intelligent data systems. Holding a Bachelor's in Computer Engineering from Quchan University of Technology and pursuing my Master's at Shahrood University of Technology, my core expertise centers around robust server-side development and machine learning.</p>
+                <p>I am a software developer specializing in backend engineering, data science, and intelligent data systems. Holding a Bachelor's in Computer Engineering and pursuing my Master's in Software Engineering, my core expertise centers around robust server-side development and machine learning.</p>
                 <p>I work extensively with Python, PyTorch, Django, and database structures, applying algorithms to solve real-world engineering challenges.</p>
                 <div class="info-grid">
                     <div class="info-item"><i class="fas fa-graduation-cap"></i><span>M.Sc. Software Engineering</span></div>
                     <div class="info-item"><i class="fas fa-server"></i><span>Backend & Data Systems</span></div>
                     <div class="info-item"><i class="fas fa-brain"></i><span>PyTorch & Machine Learning</span></div>
-                    <div class="info-item"><i class="fas fa-map-marker-alt"><span>Mashhad & Tehran, Iran</span></div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>Mashhad & Tehran, Iran</span></div>
                 </div>
             </div>
         </div>
@@ -387,7 +336,7 @@
             <div class="skill-category">
                 <h3><i class="fas fa-server"></i> Backend & Databases</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Python (Language)</span>
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">Node.js</span>
                     <span class="skill-tag">Django</span>
@@ -400,9 +349,9 @@
                 <div class="skill-tags">
                     <span class="skill-tag">PyTorch</span>
                     <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">CNN / RNN / SVM</span>
-                    <span class="skill-tag">Random Forests</span>
-                    <span class="skill-tag">Large/Small Language Models</span>
+                    <span class="skill-tag">CNN / RNN</span>
+                    <span class="skill-tag">SVM / Random Forests</span>
+                    <span class="skill-tag">Language Models (LLMs/SLMs)</span>
                     <span class="skill-tag">Pandas / NumPy</span>
                 </div>
             </div>
@@ -487,7 +436,7 @@
     </section>
 
     <footer>
-        <span>VS Code Status: UTF-8 | Git: main* | Python 3.12 & PyTorch | Haniyeh Zahraee © 2026</span>
+        <span>VS Code Status: UTF-8 | Git: main* | Python & PyTorch | Haniyeh Zahraee © 2026</span>
     </footer>
 
     <script>
