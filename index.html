@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" class="dark scroll-smooth">
+<html lang="en" dir="ltr" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haniyeh Zahraee | Portfolio</title>
+    <title>Haniyeh Zahraee | Backend & Data Software Engineer</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,24 +18,42 @@
                     colors: {
                         brand: {
                             50: '#eef2ff',
+                            100: '#e0e7ff',
                             500: '#6366f1',
                             600: '#4f46e5',
                             700: '#4338ca',
                         },
                         darkBg: '#0b0f19',
                         darkCard: '#111827',
+                        darkCardHover: '#1f2937',
                         darkBorder: '#1f2937'
                     },
                     fontFamily: {
                         sans: ['Inter', 'Vazirmatn', 'sans-serif'],
                         vazir: ['Vazirmatn', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -40px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(15px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <!-- Google Fonts: Vazirmatn (Fa) & Inter (En) -->
+    <!-- Google Fonts: Inter & Vazirmatn -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -45,308 +63,326 @@
 
     <style>
         body {
-            font-family: 'Vazirmatn', 'Inter', sans-serif;
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        html[dir="ltr"] body {
-            font-family: 'Inter', sans-serif;
+        html[dir="rtl"] body {
+            font-family: 'Vazirmatn', 'Inter', sans-serif;
         }
-        .glassmorphism {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .light .glassmorphism {
-            background: rgba(255, 255, 255, 0.85);
-        }
+        
         .gradient-text {
             background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Interactive Skill Tags */
         .skill-tag {
             display: inline-flex;
             align-items: center;
-            padding: 0.35rem 0.75rem;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            background-color: rgba(243, 244, 246, 0.8);
-            border: 1px solid rgba(229, 231, 235, 1);
+            gap: 0.5rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 0.65rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
             color: #374151;
-            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.25s ease;
         }
         .dark .skill-tag {
-            background-color: rgba(31, 41, 55, 0.6);
-            border-color: rgba(55, 65, 81, 0.8);
-            color: #e5e7eb;
+            background-color: rgba(17, 24, 39, 0.85);
+            border-color: #1f2937;
+            color: #f3f4f6;
+            box-shadow: none;
         }
         .skill-tag:hover {
+            transform: translateY(-2px);
             border-color: #6366f1;
-            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+        }
+        .dark .skill-tag:hover {
+            border-color: #818cf8;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+        }
+
+        /* Glassmorphism Classes */
+        .header-glass {
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+        .dark .header-glass {
+            background-color: rgba(11, 15, 25, 0.85);
+            border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 dark:bg-darkBg dark:text-gray-100 min-h-screen selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white">
 
     <!-- ================= NAVBAR ================= -->
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-200/50 dark:border-gray-800/80 glassmorphism">
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-glass">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-extrabold tracking-wider gradient-text">
-                &lt;HZ /&gt;
+            <a href="#" class="text-xl font-extrabold tracking-wider gradient-text flex items-center gap-2">
+                <span class="text-indigo-600 dark:text-indigo-400">&lt;</span>HZ<span class="text-indigo-600 dark:text-indigo-400">/&gt;</span>
             </a>
 
             <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
-                <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-about">درباره من</a>
-                <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-skills">مهارت‌ها</a>
-                <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-exp">سوابق کاری</a>
-                <a href="#education" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-edu">تحصیلات</a>
-                <a href="#certificates" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-certs">گواهینامه‌ها</a>
-                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-projects">پروژه‌ها</a>
-                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-contact">تماس</a>
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-700 dark:text-slate-200">
+                <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-about">About</a>
+                <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-skills">Skills</a>
+                <a href="#experience" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-exp">Experience</a>
+                <a href="#education" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-edu">Education</a>
+                <a href="#certificates" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-certs">Certifications</a>
+                <a href="#projects" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-projects">Projects</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition" data-i18n="nav-contact">Contact</a>
             </nav>
 
-            <!-- Toggles (Lang & Theme) -->
+            <!-- Action Controls -->
             <div class="flex items-center gap-3">
                 <!-- Lang Switcher -->
-                <button id="langToggle" class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-xs font-semibold hover:border-indigo-500 transition shadow-sm">
-                    English
+                <button id="langToggle" class="px-3.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-bold hover:border-indigo-500 hover:text-indigo-600 dark:hover:border-indigo-400 transition shadow-sm">
+                    فارسی
                 </button>
 
                 <!-- Theme Switcher -->
-                <button id="themeToggle" class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 text-gray-600 dark:text-yellow-400 hover:border-indigo-500 transition shadow-sm" aria-label="Toggle Theme">
-                    <i class="fa-solid fa-sun hidden dark:inline"></i>
-                    <i class="fa-solid fa-moon inline dark:hidden"></i>
+                <button id="themeToggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:border-indigo-500 transition shadow-sm" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun hidden dark:inline text-sm"></i>
+                    <i class="fa-solid fa-moon inline dark:hidden text-sm"></i>
                 </button>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300">
+                <button id="mobileMenuBtn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard">
-            <a href="#about" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-about">درباره من</a>
-            <a href="#skills" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-skills">مهارت‌ها</a>
-            <a href="#experience" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-exp">سوابق کاری</a>
-            <a href="#education" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-edu">تحصیلات</a>
-            <a href="#certificates" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-certs">گواهینامه‌ها</a>
-            <a href="#projects" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-projects">پروژه‌ها</a>
-            <a href="#contact" class="block py-2 text-sm text-gray-700 dark:text-gray-200" data-i18n="nav-contact">تماس</a>
+        <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-5 space-y-2 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-darkCard shadow-lg">
+            <a href="#about" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-about">About</a>
+            <a href="#skills" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-skills">Skills</a>
+            <a href="#experience" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-exp">Experience</a>
+            <a href="#education" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-edu">Education</a>
+            <a href="#certificates" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-certs">Certifications</a>
+            <a href="#projects" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-projects">Projects</a>
+            <a href="#contact" class="block py-2 text-sm font-medium text-slate-800 dark:text-slate-200" data-i18n="nav-contact">Contact</a>
         </div>
     </header>
 
     <main class="pt-24">
         <!-- ================= HERO SECTION ================= -->
-        <section id="hero" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col items-center text-center">
-            <!-- Background Glow -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <section id="hero" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28 flex flex-col items-center text-center overflow-hidden">
+            <!-- Animated Background Glows -->
+            <div class="absolute top-10 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl filter animate-blob pointer-events-none -z-10"></div>
+            <div class="absolute top-10 right-1/4 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl filter animate-blob [animation-delay:2s] pointer-events-none -z-10"></div>
 
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-semibold mb-6">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-xs font-semibold mb-6 animate-fade-in shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span data-i18n="hero-badge">آماده همکاری به صورت Remote / Hybrid</span>
+                <span data-i18n="hero-badge">Open to Remote / Hybrid Roles</span>
             </div>
 
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4">
-                <span data-i18n="hero-name">حانیه زهرائی</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 animate-fade-in">
+                <span data-i18n="hero-name">Haniyeh Zahraee</span>
             </h1>
 
-            <p class="text-xl sm:text-2xl font-bold gradient-text mb-6 tracking-wide" data-i18n="hero-title">
-                Backend & Data Software Engineer
+            <p class="text-xl sm:text-2xl lg:text-3xl font-bold gradient-text mb-6 tracking-wide" data-i18n="hero-title">
+                Backend &amp; Data Software Engineer
             </p>
 
-            <p class="max-w-2xl text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed mb-8" data-i18n="hero-summary">
-                توسعه‌دهنده بک‌اند و دیتا با تمرکز بر طراحی معماری‌های مقیاس‌پذیر، پایپ‌لاین‌های استخراج داده با هوش مصنوعی و ساخت APIهای بهینه با پایتون و نودجی‌اس.
+            <p class="max-w-2xl text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed mb-8" data-i18n="hero-summary">
+                Backend and Data Engineer specializing in building scalable server-side architectures, AI-driven data extraction pipelines, and robust APIs with Python and Node.js.
             </p>
 
             <!-- Social Links & CTA -->
-            <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
-                <a href="#contact" class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 shadow-lg shadow-indigo-500/25 transition transform hover:-translate-y-0.5" data-i18n="hero-btn-contact">
-                    ارتباط با من
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+                <a href="#contact" class="px-7 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm hover:bg-indigo-700 shadow-lg shadow-indigo-500/25 transition transform hover:-translate-y-1" data-i18n="hero-btn-contact">
+                    Get In Touch
                 </a>
-                <a href="https://github.com/hanizhr" target="_blank" class="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-darkCard hover:border-indigo-500 transition flex items-center gap-2 text-sm font-medium">
+                <a href="https://github.com/hanizhr" target="_blank" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-darkCard hover:border-indigo-500 hover:shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm font-medium">
                     <i class="fa-brands fa-github text-base"></i>
                     <span>GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/haniyeh-zahraee-78b730235/" target="_blank" class="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-darkCard hover:border-indigo-500 transition flex items-center gap-2 text-sm font-medium text-blue-500">
+                <a href="https://www.linkedin.com/in/haniyeh-zahraee-78b730235/" target="_blank" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-darkCard hover:border-indigo-500 hover:shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400">
                     <i class="fa-brands fa-linkedin text-base"></i>
                     <span>LinkedIn</span>
                 </a>
-                <a href="mailto:haniyehzahraee@gmail.com" class="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-darkCard hover:border-indigo-500 transition flex items-center gap-2 text-sm font-medium text-red-500">
+                <a href="mailto:haniyehzahraee@gmail.com" class="px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-darkCard hover:border-indigo-500 hover:shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm font-medium text-rose-600 dark:text-rose-400">
                     <i class="fa-solid fa-envelope text-base"></i>
                     <span>Email</span>
                 </a>
             </div>
 
-            <!-- Quick Info Cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl text-xs sm:text-sm">
-                <div class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-darkCard/60 backdrop-blur-sm">
-                    <i class="fa-solid fa-location-dot text-indigo-500 text-lg mb-1 block"></i>
-                    <span class="text-gray-500 dark:text-gray-400 block text-xs" data-i18n="loc-label">موقعیت مکانی</span>
-                    <span class="font-semibold text-gray-800 dark:text-gray-200" data-i18n="loc-val">ایران — مشهد / تهران</span>
+            <!-- Quick Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl text-sm">
+                <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-darkCard/70 backdrop-blur-md shadow-sm hover:border-indigo-500/40 transition">
+                    <i class="fa-solid fa-location-dot text-indigo-500 text-xl mb-2 block"></i>
+                    <span class="text-slate-500 dark:text-slate-400 block text-xs font-medium" data-i18n="loc-label">Location</span>
+                    <span class="font-bold text-slate-800 dark:text-slate-200" data-i18n="loc-val">Iran — Mashhad / Tehran</span>
                 </div>
-                <div class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-darkCard/60 backdrop-blur-sm">
-                    <i class="fa-solid fa-graduation-cap text-purple-500 text-lg mb-1 block"></i>
-                    <span class="text-gray-500 dark:text-gray-400 block text-xs" data-i18n="edu-label">تحصیلات</span>
-                    <span class="font-semibold text-gray-800 dark:text-gray-200" data-i18n="edu-val">کارشناسی ارشد نرم‌افزار</span>
+                <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-darkCard/70 backdrop-blur-md shadow-sm hover:border-indigo-500/40 transition">
+                    <i class="fa-solid fa-graduation-cap text-purple-500 text-xl mb-2 block"></i>
+                    <span class="text-slate-500 dark:text-slate-400 block text-xs font-medium" data-i18n="edu-label">Education</span>
+                    <span class="font-bold text-slate-800 dark:text-slate-200" data-i18n="edu-val">M.Sc. Software Engineering</span>
                 </div>
-                <div class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/60 dark:bg-darkCard/60 backdrop-blur-sm">
-                    <i class="fa-solid fa-laptop-code text-pink-500 text-lg mb-1 block"></i>
-                    <span class="text-gray-500 dark:text-gray-400 block text-xs" data-i18n="focus-label">حوزه تخصصی</span>
-                    <span class="font-semibold text-gray-800 dark:text-gray-200" data-i18n="focus-val">Backend & Data Pipeline</span>
+                <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-darkCard/70 backdrop-blur-md shadow-sm hover:border-indigo-500/40 transition">
+                    <i class="fa-solid fa-laptop-code text-pink-500 text-xl mb-2 block"></i>
+                    <span class="text-slate-500 dark:text-slate-400 block text-xs font-medium" data-i18n="focus-label">Specialization</span>
+                    <span class="font-bold text-slate-800 dark:text-slate-200" data-i18n="focus-val">Backend &amp; Data Pipeline</span>
                 </div>
             </div>
         </section>
 
         <!-- ================= ABOUT SECTION ================= -->
-        <section id="about" class="py-16 bg-gray-100/50 dark:bg-darkCard/40 border-y border-gray-200 dark:border-gray-800/80">
+        <section id="about" class="py-20 bg-slate-100/70 dark:bg-darkCard/40 border-y border-slate-200 dark:border-slate-800/80">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-10">
-                    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="about-title">درباره من</h2>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="about-title">About Me</h2>
                     <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
                 </div>
 
-                <div class="p-6 sm:p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard shadow-sm space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                <div class="p-7 sm:p-9 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard shadow-sm space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
                     <p data-i18n="about-p1">
-                        من مهندس نرم‌افزار با پیش‌زمینه قوی آکادمیک در مقطع کارشناسی و کارشناسی ارشد مهندسی کامپیوتر هستم. پس از جست‌وجو و کسب تجربه در حوزه‌های متنوع کامپیوتر (از تست نرم‌افزار و اپلیکیشن‌های موبایل تا یادگیری ماشین)، اشتیاق و تمرکز اصلی خود را در حوزه <strong>توسعه بک‌اند (Backend) و کلان‌داده (Data Engineering)</strong> پیدا کردم.
+                        I am a Software Engineer with a strong academic foundation in Computer Engineering (B.Sc. &amp; M.Sc.). After exploring and gaining experience across various computer science domains—from software QA testing and mobile app development to machine learning—I found my true passion and technical focus in <strong>Backend Engineering and Data Systems</strong>.
                     </p>
                     <p data-i18n="about-p2">
-                        تجربه عملی من شامل طراحی معماری سرورها، ساخت APIهای پرسرعت و مقیاس‌پذیر با Python و Node.js، ایجاد پایپ‌لاین‌های استخراج دیتا و ساخت دیتاست‌های سفارشی برای هوش مصنوعی، و اطمینان از کیفیت کد با متدهای مدرن تست نرم‌افزار است. همواره در تلاشم تا با چالش‌های فنی عمیق‌تر درگیر شوم و فاصله میان داده‌های خام و اپلیکیشن‌های با کارایی بالا را پر کنم.
+                        My practical experience includes designing scalable server architectures, crafting high-performance REST APIs with Python and Node.js, engineering data extraction pipelines, creating custom AI datasets, and enforcing reliability through modern automated testing. I love tackling complex technical challenges and bridging the gap between raw data and robust production applications.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- ================= SKILLS SECTION ================= -->
+        <!-- ================= SKILLS SECTION WITH ICONS ================= -->
         <section id="skills" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="skills-title">مهارت‌های فنی</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="skills-title">Technical Skills</h2>
                 <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
-                <p class="text-gray-500 dark:text-gray-400 mt-3 text-sm" data-i18n="skills-subtitle">دسته‌بندی تخصص‌ها و ابزارهای مورد استفاده</p>
+                <p class="text-slate-500 dark:text-slate-400 mt-3 text-sm" data-i18n="skills-subtitle">Categorized competencies, languages, frameworks, and toolsets</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- 1. Programming Languages -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-code"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-lang">زبان‌های برنامه‌نویسی</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-lang">Programming Languages</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Dart</span>
-                        <span class="skill-tag">Bash Scripting</span>
-                        <span class="skill-tag">SQL</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-brands fa-python text-yellow-500 text-sm"></i> Python</span>
+                        <span class="skill-tag"><i class="fa-brands fa-js text-amber-400 text-sm"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fa-solid fa-code text-blue-600 text-sm"></i> C++</span>
+                        <span class="skill-tag"><i class="fa-solid fa-bullseye text-cyan-500 text-sm"></i> Dart</span>
+                        <span class="skill-tag"><i class="fa-solid fa-terminal text-slate-500 text-sm"></i> Bash Scripting</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database text-indigo-500 text-sm"></i> SQL</span>
                     </div>
                 </div>
 
                 <!-- 2. Backend Development & APIs -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-server"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-backend">توسعه بک‌اند و API</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-backend">Backend &amp; APIs</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">Django REST (DRF)</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">Socket.IO</span>
-                        <span class="skill-tag">RESTful APIs</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-solid fa-bolt text-teal-500 text-sm"></i> FastAPI</span>
+                        <span class="skill-tag"><i class="fa-solid fa-layer-group text-emerald-600 text-sm"></i> Django</span>
+                        <span class="skill-tag"><i class="fa-solid fa-network-wired text-red-500 text-sm"></i> Django REST (DRF)</span>
+                        <span class="skill-tag"><i class="fa-brands fa-node-js text-green-600 text-sm"></i> Node.js</span>
+                        <span class="skill-tag"><i class="fa-solid fa-gear text-slate-500 text-sm"></i> Express.js</span>
+                        <span class="skill-tag"><i class="fa-solid fa-plug text-amber-500 text-sm"></i> Socket.IO</span>
+                        <span class="skill-tag"><i class="fa-solid fa-arrows-split-up-and-left text-indigo-500 text-sm"></i> RESTful APIs</span>
                     </div>
                 </div>
 
                 <!-- 3. Data Science & AI -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-brain"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-data">داده، هوش مصنوعی و ML</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-data">Data Science, AI &amp; ML</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Data Extraction</span>
-                        <span class="skill-tag">Big Data</span>
-                        <span class="skill-tag">AI Agents</span>
-                        <span class="skill-tag">OpenAI API</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Scikit-Learn</span>
-                        <span class="skill-tag">Matplotlib / Seaborn</span>
-                        <span class="skill-tag" data-i18n="skill-math">جبر خطی و آمار</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-solid fa-fire-flame-curved text-orange-500 text-sm"></i> PyTorch</span>
+                        <span class="skill-tag"><i class="fa-solid fa-brain text-purple-500 text-sm"></i> Machine Learning</span>
+                        <span class="skill-tag"><i class="fa-solid fa-filter text-cyan-500 text-sm"></i> Data Extraction</span>
+                        <span class="skill-tag"><i class="fa-solid fa-cubes-stacked text-blue-500 text-sm"></i> Big Data</span>
+                        <span class="skill-tag"><i class="fa-solid fa-robot text-emerald-500 text-sm"></i> AI Agents</span>
+                        <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles text-green-500 text-sm"></i> OpenAI API</span>
+                        <span class="skill-tag"><i class="fa-solid fa-table text-indigo-500 text-sm"></i> Pandas</span>
+                        <span class="skill-tag"><i class="fa-solid fa-square-root-variable text-sky-500 text-sm"></i> NumPy</span>
+                        <span class="skill-tag"><i class="fa-solid fa-microchip text-orange-400 text-sm"></i> Scikit-Learn</span>
+                        <span class="skill-tag"><i class="fa-solid fa-chart-line text-amber-500 text-sm"></i> Matplotlib / Seaborn</span>
+                        <span class="skill-tag"><i class="fa-solid fa-chart-pie text-pink-500 text-sm"></i> <span data-i18n="skill-math">Linear Algebra &amp; Stats</span></span>
                     </div>
                 </div>
 
                 <!-- 4. Databases & Caching -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-database"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-db">پایگاه داده و Caching</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-db">Databases &amp; Caching</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">SQL Databases</span>
-                        <span class="skill-tag">Data Modeling</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-solid fa-database text-sky-500 text-sm"></i> PostgreSQL</span>
+                        <span class="skill-tag"><i class="fa-solid fa-memory text-red-500 text-sm"></i> Redis</span>
+                        <span class="skill-tag"><i class="fa-solid fa-table-cells text-indigo-500 text-sm"></i> Relational SQL</span>
+                        <span class="skill-tag"><i class="fa-solid fa-diagram-project text-purple-500 text-sm"></i> Data Modeling</span>
                     </div>
                 </div>
 
                 <!-- 5. Testing & Performance -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-vial-circle-check"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-qa">تست و تضمین کیفیت (QA)</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-qa">Testing &amp; QA</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">k6 (Load Testing)</span>
-                        <span class="skill-tag">Cypress (E2E)</span>
-                        <span class="skill-tag">Automated Testing</span>
-                        <span class="skill-tag">Manual Testing</span>
-                        <span class="skill-tag">QA Lifecycle & Edge Cases</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-solid fa-gauge-high text-purple-500 text-sm"></i> k6 (Load Testing)</span>
+                        <span class="skill-tag"><i class="fa-solid fa-vial text-emerald-500 text-sm"></i> Cypress (E2E)</span>
+                        <span class="skill-tag"><i class="fa-solid fa-robot text-teal-500 text-sm"></i> Automated Testing</span>
+                        <span class="skill-tag"><i class="fa-solid fa-clipboard-check text-blue-500 text-sm"></i> Manual Testing</span>
+                        <span class="skill-tag"><i class="fa-solid fa-list-check text-rose-500 text-sm"></i> QA Protocols &amp; Edge Cases</span>
                     </div>
                 </div>
 
                 <!-- 6. DevOps, Mobile & Tools -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-lg">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-gears"></i>
                         </div>
-                        <h3 class="font-bold text-lg" data-i18n="cat-devops">دواپس، ابزارها و موبایل</h3>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-i18n="cat-devops">DevOps &amp; Mobile</h3>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">CI/CD Pipelines</span>
-                        <span class="skill-tag">Flutter</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag"><i class="fa-brands fa-linux text-amber-500 text-sm"></i> Linux</span>
+                        <span class="skill-tag"><i class="fa-brands fa-docker text-blue-500 text-sm"></i> Docker</span>
+                        <span class="skill-tag"><i class="fa-brands fa-git-alt text-orange-600 text-sm"></i> Git &amp; GitHub</span>
+                        <span class="skill-tag"><i class="fa-solid fa-infinity text-sky-500 text-sm"></i> CI/CD Pipelines</span>
+                        <span class="skill-tag"><i class="fa-brands fa-flutter text-sky-400 text-sm"></i> Flutter</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ================= EXPERIENCE SECTION ================= -->
-        <section id="experience" class="py-20 bg-gray-100/50 dark:bg-darkCard/40 border-y border-gray-200 dark:border-gray-800/80">
+        <section id="experience" class="py-20 bg-slate-100/70 dark:bg-darkCard/40 border-y border-slate-200 dark:border-slate-800/80">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
-                    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="exp-title">سوابق شغلی</h2>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="exp-title">Work Experience</h2>
                     <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
                 </div>
 
@@ -355,17 +391,17 @@
                     <!-- Job 1: Freelance -->
                     <div class="relative pl-6 rtl:pl-0 rtl:pr-6">
                         <span class="absolute -left-[9px] rtl:-left-auto rtl:-right-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-500/20"></span>
-                        <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard shadow-sm">
+                        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard shadow-sm hover:shadow-md transition">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white" data-i18n="job1-title">برنامه‌نویس نرم‌افزار (فریلنسر)</h3>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400" data-i18n="job1-date">۱۴۰۴ - اکنون (2025 – Present)</span>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="job1-title">Freelance Software Engineer</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400" data-i18n="job1-date">2025 – Present</span>
                             </div>
-                            <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4" data-i18n="job1-type">Self-Employed / مستقل</p>
+                            <p class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-4" data-i18n="job1-type">Self-Employed</p>
                             
-                            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-                                <li data-i18n="job1-p1">طراحی و پیاده‌سازی معماری بک‌اند با Node.js برای وب‌سایت <a href="https://factor0.tr/" target="_blank" class="text-indigo-500 hover:underline font-semibold">factor0.tr</a> و توسعه اندپوینت‌های مقیاس‌پذیر REST API.</li>
-                                <li data-i18n="job1-p2">طراحی و پیاده‌سازی معماری بک‌اند مبتنی بر پایتون برای پلتفرم <a href="https://exobiogene.ir/" target="_blank" class="text-indigo-500 hover:underline font-semibold">Exobiogene.ir</a> و مدیریت پایپ‌لاین‌های پردازش داده.</li>
-                                <li data-i18n="job1-p3">مدیریت مستقیم ارتباط با کارفرما، تبدیل نیازمندی‌های بیزینس به مشخصات فنی و تحویل سیستم‌های آماده تولید (Production-Ready).</li>
+                            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                                <li data-i18n="job1-p1">Architected and implemented a Node.js backend for <a href="https://factor0.tr/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">factor0.tr</a>, building scalable server-side logic and RESTful API endpoints.</li>
+                                <li data-i18n="job1-p2">Designed and developed a Python-based backend architecture for <a href="https://exobiogene.ir/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Exobiogene.ir</a>, structuring core services and data pipelines.</li>
+                                <li data-i18n="job1-p3">Managed client relationships directly, translating business requirements into technical specs and delivering production-ready systems on schedule.</li>
                             </ul>
                         </div>
                     </div>
@@ -373,17 +409,17 @@
                     <!-- Job 2: Part Co. -->
                     <div class="relative pl-6 rtl:pl-0 rtl:pr-6">
                         <span class="absolute -left-[9px] rtl:-left-auto rtl:-right-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-500/20"></span>
-                        <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard shadow-sm">
+                        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard shadow-sm hover:shadow-md transition">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white" data-i18n="job2-title">مهندس تست نرم‌افزار (Software QA Engineer)</h3>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300" data-i18n="job2-date">۱۴۰۴ - ۱۴۰۵ (2025 – 2026)</span>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="job2-title">Software QA Engineer</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300" data-i18n="job2-date">2025 – 2026</span>
                             </div>
-                            <p class="text-sm font-semibold text-indigo-500 dark:text-indigo-400 mb-4" data-i18n="job2-company">شرکت پردازش اطلاعات مالی پارت (Part Co.)</p>
+                            <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-4" data-i18n="job2-company">Part Financial Data Processing Co. (Part Co.)</p>
                             
-                            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-                                <li data-i18n="job2-p1">طراحی و اجرای استراتژی‌های تست خودکار (Automated) و دستی (Manual) در چرخه حیات نرم‌افزار.</li>
-                                <li data-i18n="job2-p2">ایجاد و نگهداری تست‌کیس‌ها و پروتکل‌های QA برای اعتبارسنجی فانکشنالیتی، پرفورمنس و لبه‌های پنهان سیستم (Edge Cases).</li>
-                                <li data-i18n="job2-p3">همکاری نزدیک با تیم توسعه برای ریشه‌یابی و رفع باگ‌ها و بهبود قابلیت اطمینان سیستم قبل از استقرار.</li>
+                            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                                <li data-i18n="job2-p1">Designed and executed automated and manual test strategies across the software development lifecycle.</li>
+                                <li data-i18n="job2-p2">Built and maintained test cases and QA protocols to validate functionality, performance, and edge-case behaviors.</li>
+                                <li data-i18n="job2-p3">Collaborated closely with development teams to triage, document, and resolve defects prior to production release.</li>
                             </ul>
                         </div>
                     </div>
@@ -391,16 +427,16 @@
                     <!-- Job 3: Hooshmand Farahas -->
                     <div class="relative pl-6 rtl:pl-0 rtl:pr-6">
                         <span class="absolute -left-[9px] rtl:-left-auto rtl:-right-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 ring-4 ring-indigo-500/20"></span>
-                        <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard shadow-sm">
+                        <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard shadow-sm hover:shadow-md transition">
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                <h3 class="text-lg font-bold text-gray-900 dark:text-white" data-i18n="job3-title">کارآموز برنامه‌نویسی فلاتر (Flutter Developer Intern)</h3>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300" data-i18n="job3-date">تابستان ۱۴۰۲ (Summer 2023)</span>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="job3-title">Flutter Developer Intern</h3>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300" data-i18n="job3-date">Summer 2023</span>
                             </div>
-                            <p class="text-sm font-semibold text-indigo-500 dark:text-indigo-400 mb-4" data-i18n="job3-company">شرکت هوشمند فراحس پویا (Hooshmand Farahas Pouya Co.)</p>
+                            <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mb-4" data-i18n="job3-company">Hooshmand Farahas Pouya Co.</p>
                             
-                            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300 list-disc list-inside">
-                                <li data-i18n="job3-p1">توسعه ماژول‌های اپلیکیشن کراس‌پلتفرم با استفاده از Flutter در طول دوره کارآموزی ۳ ماهه.</li>
-                                <li data-i18n="job3-p2">کسب تجربه در معماری رابط کاربری موبایل و همکاری با تیم مهندسی در پروژه‌های واقعی.</li>
+                            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                                <li data-i18n="job3-p1">Developed cross-platform mobile features using Flutter during an intensive 3-month internship.</li>
+                                <li data-i18n="job3-p2">Gained practical experience in mobile architecture and collaborated with engineering teams on real-world milestones.</li>
                             </ul>
                         </div>
                     </div>
@@ -411,72 +447,72 @@
         <!-- ================= EDUCATION SECTION ================= -->
         <section id="education" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="edu-title">سوابق تحصیلی</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="edu-title">Academic Background</h2>
                 <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Master Degree -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition flex flex-col justify-between">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-purple-500/10 text-purple-500" data-i18n="msc-badge">کارشناسی ارشد</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Shahrood University of Tech</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400" data-i18n="msc-badge">M.Sc. Degree</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Shahrood Univ of Tech</span>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="msc-field">مهندسی کامپیوتر — گرایش نرم‌افزار</h3>
-                        <p class="text-xs text-indigo-500 mb-4" data-i18n="msc-uni">دانشگاه صنعتی شاهرود</p>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1" data-i18n="msc-field">M.Sc. in Computer Engineering — Software</h3>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400 mb-4" data-i18n="msc-uni">Shahrood University of Technology</p>
                         
-                        <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            <strong class="text-gray-800 dark:text-gray-100 block mb-1" data-i18n="msc-thesis-title">موضوع پایان‌نامه:</strong>
-                            <span data-i18n="msc-thesis-desc">طراحی و پیاده‌سازی سیستم مبتنی بر هوش مصنوعی برای وب‌سایت‌های فروشگاهی جهت استخراج دقیق اطلاعات کالاها، شامل پایپ‌لاین کامل جمع‌آوری دیتا و ساخت دیتاست سفارشی.</span>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            <strong class="text-slate-800 dark:text-slate-100 block mb-1" data-i18n="msc-thesis-title">Thesis:</strong>
+                            <span data-i18n="msc-thesis-desc">Designed and implemented an AI-based system for e-commerce websites to accurately extract product data, architecting the complete data collection and dataset-creation pipeline.</span>
                         </div>
                     </div>
-                    <div class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">
                         <i class="fa-solid fa-user-tie mr-1 ml-1 text-indigo-500"></i>
-                        <span data-i18n="msc-advisor">استاد راهنما: خانم دکتر هدی مشایخی</span>
+                        <span data-i18n="msc-advisor">Advisor: Dr. Hoda Mashayekhi</span>
                     </div>
                 </div>
 
                 <!-- Bachelor Degree -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 transition flex flex-col justify-between">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500/50 hover:shadow-lg transition flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-500" data-i18n="bsc-badge">کارشناسی</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">۱۴۰۰ – ۱۴۰۴ (2020 – 2025)</span>
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400" data-i18n="bsc-badge">B.Sc. Degree</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">2020 – 2025</span>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1" data-i18n="bsc-field">مهندسی کامپیوتر</h3>
-                        <p class="text-xs text-indigo-500 mb-4" data-i18n="bsc-uni">دانشگاه صنعتی قوچان (Quchan University of Tech)</p>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1" data-i18n="bsc-field">B.Sc. in Computer Engineering</h3>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400 mb-4" data-i18n="bsc-uni">Quchan University of Technology</p>
                         
-                        <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/60 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                            <strong class="text-gray-800 dark:text-gray-100 block mb-1" data-i18n="bsc-thesis-title">موضوع پروژه پایانی:</strong>
-                            <span data-i18n="bsc-thesis-desc">سیستم تشخیص بدافزارهای اندروید — توسعه سرور و API با پایتون و FastAPI، فرانت‌اند اپلیکیشن با Flutter، آموزش و فاین‌تیونینگ مدل‌های ML و ساخت کامل دیتاست.</span>
+                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                            <strong class="text-slate-800 dark:text-slate-100 block mb-1" data-i18n="bsc-thesis-title">Thesis:</strong>
+                            <span data-i18n="bsc-thesis-desc">Android Malware Detection System — Engineered backend with Python &amp; FastAPI and front-end with Flutter; managed model fine-tuning and dataset creation.</span>
                         </div>
                     </div>
-                    <div class="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">
                         <i class="fa-solid fa-user-tie mr-1 ml-1 text-indigo-500"></i>
-                        <span data-i18n="bsc-advisor">استاد راهنما: خانم دکتر زهرا اسکندری</span>
+                        <span data-i18n="bsc-advisor">Advisor: Dr. Zahra Eskandari</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ================= CERTIFICATIONS SECTION ================= -->
-        <section id="certificates" class="py-20 bg-gray-100/50 dark:bg-darkCard/40 border-y border-gray-200 dark:border-gray-800/80">
+        <section id="certificates" class="py-20 bg-slate-100/70 dark:bg-darkCard/40 border-y border-slate-200 dark:border-slate-800/80">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
-                    <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="certs-title">گواهینامه‌های تخصصی</h2>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="certs-title">Certifications</h2>
                     <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
-                    <p class="text-gray-500 dark:text-gray-400 mt-3 text-sm" data-i18n="certs-subtitle">مدارک و دوره‌های بین‌المللی گذرانده شده</p>
+                    <p class="text-slate-500 dark:text-slate-400 mt-3 text-sm" data-i18n="certs-subtitle">Professional credentials and specialized accreditations</p>
                 </div>
 
                 <div class="max-w-3xl mx-auto">
                     <!-- Google AI Essentials Card -->
-                    <div class="p-6 sm:p-8 rounded-2xl border border-indigo-500/30 bg-white dark:bg-darkCard shadow-lg hover:border-indigo-500 transition relative overflow-hidden">
+                    <div class="p-6 sm:p-8 rounded-2xl border border-indigo-500/30 bg-white dark:bg-darkCard shadow-lg hover:border-indigo-500 transition duration-300 relative overflow-hidden">
                         <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-blue-500 via-red-500 to-amber-500"></div>
                         
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
                             <div class="flex items-center gap-4">
-                                <div class="w-14 h-14 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm flex items-center justify-center p-2.5">
+                                <div class="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center p-2.5">
                                     <svg class="w-full h-full" viewBox="0 0 24 24">
                                         <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
                                         <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
@@ -485,50 +521,50 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="cert1-title">Google AI Essentials Specialization</h3>
-                                    <p class="text-xs sm:text-sm text-indigo-500 font-semibold mt-0.5">Google &amp; Coursera — <span data-i18n="cert1-series">مجموعه ۵ دوره‌ تخصصی</span></p>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white" data-i18n="cert1-title">Google AI Essentials Specialization</h3>
+                                    <p class="text-xs sm:text-sm text-indigo-600 dark:text-indigo-400 font-semibold mt-0.5">Google &amp; Coursera — <span data-i18n="cert1-series">5-Course Series</span></p>
                                 </div>
                             </div>
-                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 whitespace-nowrap" data-i18n="cert1-verified">تأیید شده / Verified</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 whitespace-nowrap" data-i18n="cert1-verified">Verified Credential</span>
                         </div>
 
-                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6" data-i18n="cert1-desc">
-                            گواهی تخصصی طراحی شده توسط کمپانی گوگل در ۵ دوره با تمرین‌های کاربردی و عملی شامل مقدمات هوش مصنوعی، مهندسی پرامپت، افزایش بهره‌وری شغلی با ابزارهای AI و اصول استفاده مسئولانه از هوش مصنوعی.
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6" data-i18n="cert1-desc">
+                            Completed a 5-course series developed by Google featuring hands-on practice in AI fundamentals, prompt engineering, maximizing productivity with AI tools, and responsible AI usage.
                         </p>
 
-                        <!-- Sub-Courses Covered -->
+                        <!-- Sub-Courses -->
                         <div class="mb-6">
-                            <span class="text-xs font-bold text-gray-500 dark:text-gray-400 block mb-2" data-i18n="cert1-courses-title">دوره‌های گذرانده شده:</span>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-700 dark:text-gray-300">
+                            <span class="text-xs font-bold text-slate-500 dark:text-slate-400 block mb-2" data-i18n="cert1-courses-title">Included Courses:</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700 dark:text-slate-300">
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
                                     <span>Introduction to AI</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
                                     <span>Maximize Productivity With AI Tools</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
                                     <span>Discover the Art of Prompting</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
                                     <span>Use AI Responsibly</span>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
                                     <span>Stay Ahead of the AI Curve</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <div class="text-xs text-gray-500 dark:text-gray-400">
-                                <span data-i18n="cert1-issuer">صادرکننده: Amanda Brophy (Google Career Certificates)</span>
+                        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+                            <div class="text-xs text-slate-500 dark:text-slate-400">
+                                <span data-i18n="cert1-issuer">Issued by: Amanda Brophy (Global Director of Google Career Certificates)</span>
                             </div>
-                            <a href="https://coursera.org/verify/specialization/91FUVLTTGAUB" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm transition">
-                                <span data-i18n="cert-btn-verify">مشاهده و استعلام مدرک</span>
+                            <a href="https://coursera.org/verify/specialization/91FUVLTTGAUB" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm transition transform hover:-translate-y-0.5">
+                                <span data-i18n="cert-btn-verify">Verify Certificate</span>
                                 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                             </a>
                         </div>
@@ -540,112 +576,112 @@
         <!-- ================= PROJECTS SECTION ================= -->
         <section id="projects" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <h2 class="text-2xl sm:text-3xl font-bold" data-i18n="projects-title">پروژه‌های شاخص</h2>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white" data-i18n="projects-title">Featured Projects</h2>
                 <div class="w-12 h-1 bg-indigo-600 mx-auto mt-2 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Project 1 -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:shadow-lg transition">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:shadow-xl transition transform hover:-translate-y-1">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold">factor0.tr Backend Architecture</h3>
-                        <a href="https://factor0.tr/" target="_blank" class="text-indigo-500 hover:text-indigo-600 text-sm font-semibold flex items-center gap-1">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">factor0.tr Backend Architecture</h3>
+                        <a href="https://factor0.tr/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm font-semibold flex items-center gap-1">
                             <span>Live Demo</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                         </a>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed" data-i18n="proj1-desc">
-                        طراحی و پیاده‌سازی سرور با Node.js و اکسپرس برای وب‌سایت در محیط پروداکشن، توسعه APIها و مدیریت کارآمد درخواست‌ها.
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="proj1-desc">
+                        Architected production-ready server and RESTful endpoints using Node.js &amp; Express for a live customer platform.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express.js</span>
-                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag"><i class="fa-brands fa-node-js text-green-500"></i> Node.js</span>
+                        <span class="skill-tag"><i class="fa-solid fa-gear text-slate-500"></i> Express.js</span>
+                        <span class="skill-tag"><i class="fa-solid fa-network-wired text-indigo-500"></i> REST APIs</span>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:shadow-lg transition">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:shadow-xl transition transform hover:-translate-y-1">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold">Exobiogene.ir Backend Platform</h3>
-                        <a href="https://exobiogene.ir/" target="_blank" class="text-indigo-500 hover:text-indigo-600 text-sm font-semibold flex items-center gap-1">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Exobiogene.ir Backend Platform</h3>
+                        <a href="https://exobiogene.ir/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm font-semibold flex items-center gap-1">
                             <span>Live Demo</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                         </a>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed" data-i18n="proj2-desc">
-                        طراحی ساختار سرویس‌های بک‌اند با پایتون، پیکربندی جریان داده و پشتیبانی از تمامی نیازهای پلتفرم به صورت End-to-End.
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="proj2-desc">
+                        Engineered core Python backend services, request pipelines, and integrated platform functionality end-to-end.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">APIs</span>
-                        <span class="skill-tag">Data Architecture</span>
+                        <span class="skill-tag"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
+                        <span class="skill-tag"><i class="fa-solid fa-bolt text-teal-500"></i> APIs</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database text-blue-500"></i> Data Architecture</span>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:shadow-lg transition">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:shadow-xl transition transform hover:-translate-y-1">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold" data-i18n="proj3-title">Android Malware Detection System</h3>
-                        <span class="text-xs px-2 py-1 bg-amber-500/10 text-amber-500 rounded font-semibold">B.Sc. Thesis</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="proj3-title">Android Malware Detection System</h3>
+                        <span class="text-xs px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-md font-semibold">B.Sc. Thesis</span>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed" data-i18n="proj3-desc">
-                        سیستم هوشمند تشخیص بدافزارهای اندروید با بک‌اند پایتون و FastAPI، فرانت‌اند اپلیکیشن اندروید با فلاتر و ساخت دیتاست با فاین‌تیونینگ مدل یادگیری ماشین.
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="proj3-desc">
+                        Intelligent malware classifier featuring a FastAPI backend, a Flutter mobile client, and machine learning dataset fine-tuning.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs">
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Flutter</span>
-                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag"><i class="fa-solid fa-bolt text-teal-500"></i> FastAPI</span>
+                        <span class="skill-tag"><i class="fa-brands fa-python text-yellow-500"></i> Python</span>
+                        <span class="skill-tag"><i class="fa-brands fa-flutter text-sky-400"></i> Flutter</span>
+                        <span class="skill-tag"><i class="fa-solid fa-brain text-purple-500"></i> Machine Learning</span>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:shadow-lg transition">
+                <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:shadow-xl transition transform hover:-translate-y-1">
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold" data-i18n="proj4-title">AI-Powered E-Commerce Data Extractor</h3>
-                        <span class="text-xs px-2 py-1 bg-purple-500/10 text-purple-500 rounded font-semibold">M.Sc. Research</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white" data-i18n="proj4-title">AI E-Commerce Data Extractor</h3>
+                        <span class="text-xs px-2.5 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 rounded-md font-semibold">M.Sc. Research</span>
                     </div>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed" data-i18n="proj4-desc">
-                        پایپ‌لاین جامع جمع‌آوری کلان‌داده و مدل‌های هوش مصنوعی برای استخراج هوشمند اطلاعات محصولات فروشگاهی از وب و پاکسازی داده‌ها.
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed" data-i18n="proj4-desc">
+                        End-to-end data extraction and big data cleaning pipeline for autonomous e-commerce web intelligence.
                     </p>
                     <div class="flex flex-wrap gap-2 text-xs">
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Data Extraction</span>
-                        <span class="skill-tag">Big Data</span>
-                        <span class="skill-tag">AI Pipeline</span>
+                        <span class="skill-tag"><i class="fa-solid fa-fire-flame-curved text-orange-500"></i> PyTorch</span>
+                        <span class="skill-tag"><i class="fa-solid fa-filter text-cyan-500"></i> Data Extraction</span>
+                        <span class="skill-tag"><i class="fa-solid fa-cubes-stacked text-blue-500"></i> Big Data</span>
+                        <span class="skill-tag"><i class="fa-solid fa-robot text-emerald-500"></i> AI Pipeline</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ================= CONTACT SECTION ================= -->
-        <section id="contact" class="py-20 bg-gray-100/50 dark:bg-darkCard/40 border-t border-gray-200 dark:border-gray-800/80 text-center">
+        <section id="contact" class="py-20 bg-slate-100/70 dark:bg-darkCard/40 border-t border-slate-200 dark:border-slate-800/80 text-center">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-extrabold mb-4" data-i18n="contact-title">ارتباط با من</h2>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-4" data-i18n="contact-title">Get In Touch</h2>
                 <div class="w-12 h-1 bg-indigo-600 mx-auto mb-6 rounded-full"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-10 text-sm sm:text-base leading-relaxed" data-i18n="contact-subtitle">
-                    خوشحال می‌شوم در زمینه موقعیت‌های شغلی (Remote / Hybrid)، همکاری‌های فریلنسری یا پروژه‌های بک‌اند و دیتا با هم گفتگو کنیم.
+                <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-10 text-sm sm:text-base leading-relaxed" data-i18n="contact-subtitle">
+                    Open to discussing remote/hybrid engineering positions, freelance projects, or backend &amp; data opportunities.
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-                    <a href="mailto:haniyehzahraee@gmail.com" class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500 transition flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center text-lg">
+                    <a href="mailto:haniyehzahraee@gmail.com" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500 hover:shadow-md transition flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center text-lg">
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div class="text-left rtl:text-right">
-                            <span class="text-xs text-gray-500 block">Email</span>
-                            <span class="text-sm font-semibold">haniyehzahraee@gmail.com</span>
+                            <span class="text-xs text-slate-400 block font-medium">Email</span>
+                            <span class="text-sm font-bold text-slate-800 dark:text-slate-200">haniyehzahraee@gmail.com</span>
                         </div>
                     </a>
 
-                    <a href="tel:+989157029964" class="p-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard hover:border-indigo-500 transition flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg">
+                    <a href="tel:+989157029964" class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard hover:border-indigo-500 hover:shadow-md transition flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg">
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div class="text-left rtl:text-right">
-                            <span class="text-xs text-gray-500 block">Phone</span>
-                            <span class="text-sm font-semibold dir-ltr">+98 915 702 9964</span>
+                            <span class="text-xs text-slate-400 block font-medium">Phone</span>
+                            <span class="text-sm font-bold text-slate-800 dark:text-slate-200 dir-ltr">+98 915 702 9964</span>
                         </div>
                     </a>
                 </div>
@@ -654,15 +690,15 @@
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="py-8 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-darkCard text-center text-xs text-gray-500 dark:text-gray-400">
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-darkCard text-center text-xs text-slate-500 dark:text-slate-400">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
                 © <span id="year"></span> Haniyeh Zahraee. All rights reserved.
             </div>
-            <div class="flex items-center gap-4 text-base">
-                <a href="https://github.com/hanizhr" target="_blank" class="hover:text-indigo-500 transition"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/haniyeh-zahraee-78b730235/" target="_blank" class="hover:text-indigo-500 transition"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:haniyehzahraee@gmail.com" class="hover:text-indigo-500 transition"><i class="fa-solid fa-envelope"></i></a>
+            <div class="flex items-center gap-5 text-base">
+                <a href="https://github.com/hanizhr" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/haniyeh-zahraee-78b730235/" target="_blank" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:haniyehzahraee@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
     </footer>
@@ -688,6 +724,87 @@
 
         // ================= TRANSLATIONS =================
         const translations = {
+            en: {
+                "nav-about": "About",
+                "nav-skills": "Skills",
+                "nav-exp": "Experience",
+                "nav-edu": "Education",
+                "nav-certs": "Certifications",
+                "nav-projects": "Projects",
+                "nav-contact": "Contact",
+                "hero-badge": "Open to Remote / Hybrid Roles",
+                "hero-name": "Haniyeh Zahraee",
+                "hero-title": "Backend & Data Software Engineer",
+                "hero-summary": "Backend and Data Engineer specializing in building scalable server-side architectures, AI-driven data extraction pipelines, and robust APIs with Python and Node.js.",
+                "hero-btn-contact": "Get In Touch",
+                "loc-label": "Location",
+                "loc-val": "Iran — Mashhad / Tehran",
+                "edu-label": "Education",
+                "edu-val": "M.Sc. Software Engineering",
+                "focus-label": "Specialization",
+                "focus-val": "Backend & Data Pipeline",
+                "about-title": "About Me",
+                "about-p1": "I am a Software Engineer with a strong academic foundation in Computer Engineering (B.Sc. & M.Sc.). After exploring and gaining experience across various computer science domains—from software QA testing and mobile app development to machine learning—I found my true passion and technical focus in <strong>Backend Engineering and Data Systems</strong>.",
+                "about-p2": "My practical experience includes designing scalable server architectures, crafting high-performance REST APIs with Python and Node.js, engineering data extraction pipelines, creating custom AI datasets, and enforcing reliability through modern automated testing. I love tackling complex technical challenges and bridging the gap between raw data and robust production applications.",
+                "skills-title": "Technical Skills",
+                "skills-subtitle": "Categorized competencies, languages, frameworks, and toolsets",
+                "cat-lang": "Programming Languages",
+                "cat-backend": "Backend & APIs",
+                "cat-data": "Data Science, AI & ML",
+                "cat-db": "Databases & Caching",
+                "cat-qa": "Testing & QA",
+                "cat-devops": "DevOps & Mobile",
+                "skill-math": "Linear Algebra & Stats",
+                "exp-title": "Work Experience",
+                "job1-title": "Freelance Software Engineer",
+                "job1-date": "2025 – Present",
+                "job1-type": "Self-Employed",
+                "job1-p1": "Architected and implemented a Node.js backend for <a href='https://factor0.tr/' target='_blank' class='text-indigo-600 dark:text-indigo-400 hover:underline font-semibold'>factor0.tr</a>, building scalable server-side logic and RESTful API endpoints.",
+                "job1-p2": "Designed and developed a Python-based backend architecture for <a href='https://exobiogene.ir/' target='_blank' class='text-indigo-600 dark:text-indigo-400 hover:underline font-semibold'>Exobiogene.ir</a>, structuring core services and data pipelines.",
+                "job1-p3": "Managed client relationships directly, translating business requirements into technical specs and delivering production-ready systems on schedule.",
+                "job2-title": "Software QA Engineer",
+                "job2-date": "2025 – 2026",
+                "job2-company": "Part Financial Data Processing Co. (Part Co.)",
+                "job2-p1": "Designed and executed automated and manual test strategies across the software development lifecycle.",
+                "job2-p2": "Built and maintained test cases and QA protocols to validate functionality, performance, and edge-case behaviors.",
+                "job2-p3": "Collaborated closely with development teams to triage, document, and resolve defects prior to production release.",
+                "job3-title": "Flutter Developer Intern",
+                "job3-date": "Summer 2023",
+                "job3-company": "Hooshmand Farahas Pouya Co.",
+                "job3-p1": "Developed cross-platform mobile features using Flutter during an intensive 3-month internship.",
+                "job3-p2": "Gained practical experience in mobile architecture and collaborated with engineering teams on real-world milestones.",
+                "edu-title": "Academic Background",
+                "msc-badge": "M.Sc. Degree",
+                "msc-field": "M.Sc. in Computer Engineering — Software",
+                "msc-uni": "Shahrood University of Technology",
+                "msc-thesis-title": "Thesis:",
+                "msc-thesis-desc": "Designed and implemented an AI-based system for e-commerce websites to accurately extract product data, architecting the complete data collection and dataset-creation pipeline.",
+                "msc-advisor": "Advisor: Dr. Hoda Mashayekhi",
+                "bsc-badge": "B.Sc. Degree",
+                "bsc-field": "B.Sc. in Computer Engineering",
+                "bsc-uni": "Quchan University of Technology",
+                "bsc-thesis-title": "Thesis:",
+                "bsc-thesis-desc": "Android Malware Detection System — Engineered backend with Python & FastAPI and front-end with Flutter; managed model fine-tuning and dataset creation.",
+                "bsc-advisor": "Advisor: Dr. Zahra Eskandari",
+                "certs-title": "Certifications",
+                "certs-subtitle": "Professional credentials and specialized accreditations",
+                "cert1-title": "Google AI Essentials Specialization",
+                "cert1-series": "5-Course Series",
+                "cert1-verified": "Verified Credential",
+                "cert1-desc": "Completed a 5-course series developed by Google featuring hands-on practice in AI fundamentals, prompt engineering, maximizing productivity with AI tools, and responsible AI usage.",
+                "cert1-courses-title": "Included Courses:",
+                "cert1-issuer": "Issued by: Amanda Brophy (Global Director of Google Career Certificates)",
+                "cert-btn-verify": "Verify Certificate",
+                "projects-title": "Featured Projects",
+                "proj1-desc": "Architected production-ready server and RESTful endpoints using Node.js & Express for a live customer platform.",
+                "proj2-desc": "Engineered core Python backend services, request pipelines, and integrated platform functionality end-to-end.",
+                "proj3-title": "Android Malware Detection System",
+                "proj3-desc": "Intelligent malware classifier featuring a FastAPI backend, a Flutter mobile client, and machine learning dataset fine-tuning.",
+                "proj4-title": "AI E-Commerce Data Extractor",
+                "proj4-desc": "End-to-end data extraction and big data cleaning pipeline for autonomous e-commerce web intelligence.",
+                "contact-title": "Get In Touch",
+                "contact-subtitle": "Open to discussing remote/hybrid engineering positions, freelance projects, or backend & data opportunities."
+            },
             fa: {
                 "nav-about": "درباره من",
                 "nav-skills": "مهارت‌ها",
@@ -708,35 +825,35 @@
                 "focus-label": "حوزه تخصصی",
                 "focus-val": "Backend & Data Pipeline",
                 "about-title": "درباره من",
-                "about-p1": "من مهندس نرم‌افزار با پیش‌زمینه قوی آکادمیک در مقطع کارشناسی و کارشناسی ارشد مهندسی کامپیوتر هستم. پس از جست‌وجو و کسب تجربه در حوزه‌های متنوع کامپیوتر (از تست نرم‌افزار و اپلیکیشن‌های موبایل تا یادگیری ماشین)، اشتیاق و تمرکز اصلی خود را در حوزه توسعه بک‌اند (Backend) و کلان‌داده (Data Engineering) پیدا کردم.",
-                "about-p2": "تجربه عملی من شامل طراحی معماری سرورها، ساخت APIهای پرسرعت و مقیاس‌پذیر با Python و Node.js، ایجاد پایپ‌لاین‌های استخراج دیتا و ساخت دیتاست‌های سفارشی برای هوش مصنوعی، و اطمینان از کیفیت کد با متدهای مدرن تست نرم‌افزار است. همواره در تلاشم تا با چالش‌های فنی عمیق‌تر درگیر شوم و فاصله میان داده‌های خام و اپلیکیشن‌های با کارایی بالا را پر کنم.",
+                "about-p1": "من مهندس نرم‌افزار با پیش‌زمینه قوی آکادمیک در مقطع کارشناسی و کارشناسی ارشد مهندسی کامپیوتر هستم. پس از کسب تجربه در حوزه‌های متنوع (از تست نرم‌افزار و اپلیکیشن موبایل تا یادگیری ماشین)، اشتیاق و تمرکز اصلی خود را در حوزه توسعه بک‌اند (Backend) و کلان‌داده (Data) پیدا کردم.",
+                "about-p2": "تجربه عملی من شامل طراحی معماری سرورها، ساخت APIهای پرسرعت با Python و Node.js، ایجاد پایپ‌لاین‌های استخراج دیتا و ساخت دیتاست‌های سفارشی برای هوش مصنوعی و تضمین کیفیت با متدهای مدرن تست نرم‌افزار است.",
                 "skills-title": "مهارت‌های فنی",
-                "skills-subtitle": "دسته‌بندی تخصص‌ها و ابزارهای مورد استفاده",
+                "skills-subtitle": "دسته‌بندی تخصص‌ها، زبان‌ها و ابزارهای مورد استفاده",
                 "cat-lang": "زبان‌های برنامه‌نویسی",
                 "cat-backend": "توسعه بک‌اند و API",
                 "cat-data": "داده، هوش مصنوعی و ML",
                 "cat-db": "پایگاه داده و Caching",
                 "cat-qa": "تست و تضمین کیفیت (QA)",
-                "cat-devops": "دواپس، ابزارها و موبایل",
+                "cat-devops": "دواپس و موبایل",
                 "skill-math": "جبر خطی و آمار",
                 "exp-title": "سوابق شغلی",
                 "job1-title": "برنامه‌نویس نرم‌افزار (فریلنسر)",
                 "job1-date": "۱۴۰۴ - اکنون (2025 – Present)",
                 "job1-type": "Self-Employed / مستقل",
-                "job1-p1": "طراحی و پیاده‌سازی معماری بک‌اند با Node.js برای وب‌سایت factor0.tr و توسعه اندپوینت‌های مقیاس‌پذیر REST API.",
-                "job1-p2": "طراحی و پیاده‌سازی معماری بک‌اند مبتنی بر پایتون برای پلتفرم Exobiogene.ir و مدیریت پایپ‌لاین‌های پردازش داده.",
-                "job1-p3": "مدیریت مستقیم ارتباط با کارفرما، تبدیل نیازمندی‌های بیزینس به مشخصات فنی و تحویل سیستم‌های آماده تولید (Production-Ready).",
+                "job1-p1": "طراحی و پیاده‌سازی معماری بک‌اند با Node.js برای وب‌سایت <a href='https://factor0.tr/' target='_blank' class='text-indigo-600 dark:text-indigo-400 hover:underline font-semibold'>factor0.tr</a> و توسعه اندپوینت‌های مقیاس‌پذیر REST API.",
+                "job1-p2": "طراحی و پیاده‌سازی معماری بک‌اند پایتون برای پلتفرم <a href='https://exobiogene.ir/' target='_blank' class='text-indigo-600 dark:text-indigo-400 hover:underline font-semibold'>Exobiogene.ir</a> و مدیریت پایپ‌لاین‌های پردازش داده.",
+                "job1-p3": "مدیریت مستقیم ارتباط با کارفرما، تبدیل نیازمندی‌های بیزینس به مشخصات فنی و تحویل سیستم‌های آماده پروداکشن.",
                 "job2-title": "مهندس تست نرم‌افزار (Software QA Engineer)",
                 "job2-date": "۱۴۰۴ - ۱۴۰۵ (2025 – 2026)",
                 "job2-company": "شرکت پردازش اطلاعات مالی پارت (Part Co.)",
                 "job2-p1": "طراحی و اجرای استراتژی‌های تست خودکار (Automated) و دستی (Manual) در چرخه حیات نرم‌افزار.",
-                "job2-p2": "ایجاد و نگهداری تست‌کیس‌ها و پروتکل‌های QA برای اعتبارسنجی فانکشنالیتی، پرفورمنس و لبه‌های پنهان سیستم (Edge Cases).",
-                "job2-p3": "همکاری نزدیک با تیم توسعه برای ریشه‌یابی و رفع باگ‌ها و بهبود قابلیت اطمینان سیستم قبل از استقرار.",
+                "job2-p2": "ایجاد و نگهداری تست‌کیس‌ها و پروتکل‌های QA برای اعتبارسنجی قابلیت اطمینان، پرفورمنس و لبه‌های پنهان سیستم.",
+                "job2-p3": "همکاری نزدیک با تیم توسعه برای ریشه‌یابی و رفع باگ‌ها قبل از انتشار نهایی.",
                 "job3-title": "کارآموز برنامه‌نویسی فلاتر (Flutter Developer Intern)",
                 "job3-date": "تابستان ۱۴۰۲ (Summer 2023)",
                 "job3-company": "شرکت هوشمند فراحس پویا (Hooshmand Farahas Pouya Co.)",
                 "job3-p1": "توسعه ماژول‌های اپلیکیشن کراس‌پلتفرم با استفاده از Flutter در طول دوره کارآموزی ۳ ماهه.",
-                "job3-p2": "کسب تجربه در معماری رابط کاربری موبایل و همکاری با تیم مهندسی در پروژه‌های واقعی.",
+                "job3-p2": "کسب تجربه در معماری رابط کاربری موبایل و همکاری تیمی در تحویل تسک‌های واقعی.",
                 "edu-title": "سوابق تحصیلی",
                 "msc-badge": "کارشناسی ارشد",
                 "msc-field": "مهندسی کامپیوتر — گرایش نرم‌افزار",
@@ -748,112 +865,31 @@
                 "bsc-field": "مهندسی کامپیوتر",
                 "bsc-uni": "دانشگاه صنعتی قوچان",
                 "bsc-thesis-title": "موضوع پروژه پایانی:",
-                "bsc-thesis-desc": "سیستم تشخیص بدافزارهای اندروید — توسعه سرور و API با پایتون و FastAPI، فرانت‌اند اپلیکیشن با Flutter، آموزش و فاین‌تیونینگ مدل‌های ML و ساخت کامل دیتاست.",
+                "bsc-thesis-desc": "سیستم تشخیص بدافزارهای اندروید — توسعه سرور با پایتون و FastAPI، فرانت‌اند با Flutter، فاین‌تیونینگ مدل ML و ساخت کامل دیتاست.",
                 "bsc-advisor": "استاد راهنما: خانم دکتر زهرا اسکندری",
                 "certs-title": "گواهینامه‌های تخصصی",
                 "certs-subtitle": "مدارک و دوره‌های بین‌المللی گذرانده شده",
                 "cert1-title": "تخصص Google AI Essentials",
                 "cert1-series": "مجموعه ۵ دوره‌ تخصصی از Google",
                 "cert1-verified": "تأیید شده / Verified",
-                "cert1-desc": "گواهی تخصصی طراحی شده توسط کمپانی گوگل در ۵ دوره با تمرین‌های کاربردی و عملی شامل مقدمات هوش مصنوعی، مهندسی پرامپت، افزایش بهره‌وری شغلی با ابزارهای AI و اصول استفاده مسئولانه از هوش مصنوعی.",
-                "cert1-courses-title": "دوره‌های گذرانده شده در این تخصص:",
+                "cert1-desc": "گواهی تخصصی گوگل در ۵ دوره کاربردی شامل مقدمات هوش مصنوعی، مهندسی پرامپت، افزایش بهره‌وری شغلی با ابزارهای AI و اصول استفاده مسئولانه از هوش مصنوعی.",
+                "cert1-courses-title": "دوره‌های گذرانده شده:",
                 "cert1-issuer": "صادرکننده: Amanda Brophy (مدیر جهانی گواهینامه‌های حرفه‌ای Google)",
-                "cert-btn-verify": "مشاهده و استعلام مدرک",
+                "cert-btn-verify": "استعلام آنلاین مدرک",
                 "projects-title": "پروژه‌های شاخص",
-                "proj1-desc": "طراحی و پیاده‌سازی سرور با Node.js و اکسپرس برای وب‌سایت در محیط پروداکشن، توسعه APIها و مدیریت کارآمد درخواست‌ها.",
-                "proj2-desc": "طراحی ساختار سرویس‌های بک‌اند با پایتون، پیکربندی جریان داده و پشتیبانی از تمامی نیازهای پلتفرم به صورت End-to-End.",
+                "proj1-desc": "طراحی و پیاده‌سازی سرور با Node.js و اکسپرس در محیط پروداکشن، توسعه APIها و مدیریت کارآمد درخواست‌ها.",
+                "proj2-desc": "طراحی ساختار سرویس‌های بک‌اند با پایتون، پیکربندی جریان داده و پشتیبانی کامل نیازمندی‌های پلتفرم.",
                 "proj3-title": "سیستم تشخیص بدافزار اندروید",
-                "proj3-desc": "سیستم هوشمند تشخیص بدافزارهای اندروید با بک‌اند پایتون و FastAPI، فرانت‌اند اپلیکیشن اندروید با فلاتر و ساخت دیتاست با فاین‌تیونینگ مدل یادگیری ماشین.",
+                "proj3-desc": "سیستم هوشمند تشخیص بدافزار با سرور FastAPI، کلاینت موبایل Flutter و مدل یادگیری ماشین بهینه‌شده.",
                 "proj4-title": "استخراج‌کننده هوشمند داده‌های فروشگاهی",
-                "proj4-desc": "پایپ‌لاین جامع جمع‌آوری کلان‌داده و مدل‌های هوش مصنوعی برای استخراج هوشمند اطلاعات محصولات فروشگاهی از وب و پاکسازی داده‌ها.",
+                "proj4-desc": "پایپ‌لاین جامع جمع‌آوری کلان‌داده و مدل‌های هوش مصنوعی برای استخراج هوشمند اطلاعات محصولات از وب.",
                 "contact-title": "ارتباط با من",
-                "contact-subtitle": "خوشحال می‌شوم در زمینه موقعیت‌های شغلی (Remote / Hybrid)، همکاری‌های فریلنسری یا پروژه‌های بک‌اند و دیتا با هم گفتگو کنیم."
-            },
-            en: {
-                "nav-about": "About",
-                "nav-skills": "Skills",
-                "nav-exp": "Experience",
-                "nav-edu": "Education",
-                "nav-certs": "Certificates",
-                "nav-projects": "Projects",
-                "nav-contact": "Contact",
-                "hero-badge": "Open to Remote / Hybrid Roles",
-                "hero-name": "Haniyeh Zahraee",
-                "hero-title": "Backend & Data Software Engineer",
-                "hero-summary": "Backend and Data Engineer specializing in building scalable server-side architectures, AI-driven data extraction pipelines, and robust APIs with Python and Node.js.",
-                "hero-btn-contact": "Get In Touch",
-                "loc-label": "Location",
-                "loc-val": "Iran — Mashhad / Tehran",
-                "edu-label": "Education",
-                "edu-val": "M.Sc. in Software Engineering",
-                "focus-label": "Specialization",
-                "focus-val": "Backend & Data Pipeline",
-                "about-title": "About Me",
-                "about-p1": "I am a Software Engineer with a solid academic background in Computer Engineering (B.Sc. & M.Sc.). After exploring multiple computer science domains (from QA testing and mobile apps to machine learning), I discovered my core passion and dedication in Backend and Data Engineering.",
-                "about-p2": "My hands-on experience includes architecting reliable backends, designing scalable REST APIs with Python and Node.js, building end-to-end data extraction pipelines, creating custom AI datasets, and enforcing software reliability through modern QA and testing practices.",
-                "skills-title": "Technical Skills",
-                "skills-subtitle": "Categorized competencies & toolset",
-                "cat-lang": "Programming Languages",
-                "cat-backend": "Backend & APIs",
-                "cat-data": "Data Science, AI & ML",
-                "cat-db": "Databases & Caching",
-                "cat-qa": "Testing & QA",
-                "cat-devops": "DevOps, Tools & Mobile",
-                "skill-math": "Linear Algebra & Statistics",
-                "exp-title": "Work Experience",
-                "job1-title": "Freelance Software Engineer",
-                "job1-date": "2025 – Present",
-                "job1-type": "Self-Employed",
-                "job1-p1": "Architected and implemented a Node.js backend for factor0.tr, building scalable server-side logic and RESTful API endpoints.",
-                "job1-p2": "Designed and developed a Python-based backend architecture for Exobiogene.ir, structuring core services and data pipelines.",
-                "job1-p3": "Managed client relationships directly, translating business requirements into technical specs and delivering production-ready systems on schedule.",
-                "job2-title": "Software QA Engineer",
-                "job2-date": "2025 – 2026",
-                "job2-company": "Part Financial Data Processing Co. (Part Co.)",
-                "job2-p1": "Designed and executed automated and manual test strategies across the software development lifecycle.",
-                "job2-p2": "Built and maintained test cases and QA protocols to validate functionality, performance, and edge-case behaviors.",
-                "job2-p3": "Collaborated closely with development teams to triage, document, and resolve defects prior to deployment.",
-                "job3-title": "Flutter Developer Intern",
-                "job3-date": "Summer 2023",
-                "job3-company": "Hooshmand Farahas Pouya Co.",
-                "job3-p1": "Developed cross-platform mobile features using Flutter during an intensive 3-month internship.",
-                "job3-p2": "Gained practical experience in mobile architecture and collaborated with engineering teams on real-world milestones.",
-                "edu-title": "Academic Background",
-                "msc-badge": "M.Sc. Degree",
-                "msc-field": "M.Sc. in Computer Engineering — Software",
-                "msc-uni": "Shahrood University of Technology",
-                "msc-thesis-title": "Thesis:",
-                "msc-thesis-desc": "Designed and implemented an AI-based system for e-commerce websites to accurately extract product data, architecting the complete data collection and dataset-creation pipeline.",
-                "msc-advisor": "Advisor: Dr. Hoda Mashayekhi",
-                "bsc-badge": "B.Sc. Degree",
-                "bsc-field": "B.Sc. in Computer Engineering",
-                "bsc-uni": "Quchan University of Technology (2020 – 2025)",
-                "bsc-thesis-title": "Thesis:",
-                "bsc-thesis-desc": "Android Malware Detection System — Engineered the backend with Python & FastAPI and the front-end with Flutter; managed model fine-tuning and dataset creation.",
-                "bsc-advisor": "Advisor: Dr. Zahra Eskandari",
-                "certs-title": "Certifications",
-                "certs-subtitle": "Professional and international accreditations",
-                "cert1-title": "Google AI Essentials Specialization",
-                "cert1-series": "5-Course Specialization by Google",
-                "cert1-verified": "Verified Credential",
-                "cert1-desc": "Completed a 5-course series developed by Google featuring hands-on practice in AI fundamentals, prompt engineering, maximizing productivity with AI tools, and responsible AI usage.",
-                "cert1-courses-title": "Included Courses:",
-                "cert1-issuer": "Issued by: Amanda Brophy (Global Director of Google Career Certificates)",
-                "cert-btn-verify": "Verify Certificate",
-                "projects-title": "Featured Projects",
-                "proj1-desc": "Architected production-ready server and RESTful endpoints using Node.js & Express for a live customer platform.",
-                "proj2-desc": "Engineered core Python backend services, request pipelines, and integrated platform functionality end-to-end.",
-                "proj3-title": "Android Malware Detection System",
-                "proj3-desc": "Intelligent malware classifier featuring a FastAPI backend, a Flutter mobile client, and machine learning dataset fine-tuning.",
-                "proj4-title": "AI E-Commerce Data Extractor",
-                "proj4-desc": "End-to-end data extraction and big data cleaning pipeline for autonomous e-commerce web intelligence.",
-                "contact-title": "Get In Touch",
-                "contact-subtitle": "Open to discussing remote/hybrid engineering positions, freelance projects, or backend & data opportunities."
+                "contact-subtitle": "خوشحال می‌شوم در زمینه موقعیت‌های شغلی (Remote / Hybrid)، همکاری‌های فریلنسری یا پروژه‌های بک‌اند و دیتا گفتگو کنیم."
             }
         };
 
-        // ================= LANGUAGE & THEME CONTROLLER =================
-        let currentLang = 'fa';
+        // ================= CONTROLLERS =================
+        let currentLang = 'en'; // Default English
 
         const langToggleBtn = document.getElementById('langToggle');
         const themeToggleBtn = document.getElementById('themeToggle');
@@ -865,7 +901,6 @@
             htmlElem.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
             langToggleBtn.textContent = lang === 'fa' ? 'English' : 'فارسی';
 
-            // Update all translated elements
             document.querySelectorAll('[data-i18n]').forEach(elem => {
                 const key = elem.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
@@ -875,17 +910,17 @@
         }
 
         langToggleBtn.addEventListener('click', () => {
-            updateLanguage(currentLang === 'fa' ? 'en' : 'fa');
+            updateLanguage(currentLang === 'en' ? 'fa' : 'en');
         });
 
-        // Theme Toggle
+        // Theme Toggle Logic
         themeToggleBtn.addEventListener('click', () => {
             htmlElem.classList.toggle('dark');
             const isDark = htmlElem.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
 
-        // Check local storage for theme
+        // Initialize Theme
         if (localStorage.getItem('theme') === 'light') {
             htmlElem.classList.remove('dark');
         } else {
